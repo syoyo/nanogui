@@ -338,10 +338,12 @@ add_library(nanogui-obj OBJECT
 
 add_library(nanogui ${NANOGUI_LIBRARY_TYPE}
   $<TARGET_OBJECTS:nanogui-obj>
+  $<TARGET_OBJECTS:glfw3_objects>
 )
 
 if (NANOGUI_BUILD_SHARED)
   set_property(TARGET nanogui-obj PROPERTY POSITION_INDEPENDENT_CODE ON)
+  set_property(TARGET glfw3_objects PROPERTY POSITION_INDEPENDENT_CODE ON)
 endif()
 
 # Compile/link flags for NanoGUI
